@@ -1,14 +1,22 @@
-import React from "react"; // Import React
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import About from "./components/About"
+import Chatbot from "./components/Chatbot"
+import './index.css';
 
-import "./App.css";
-import Home from "./components/home/Home"; 
- // Import Home with the correct casing
 
 function App() {
   return (
-    <>
-      <Home /> {/* Use uppercase for component */}
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/blog" element={<Blog />} /> */}
+        <Route path="/chatbot" element={<Chatbot />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
   );
 }
 
